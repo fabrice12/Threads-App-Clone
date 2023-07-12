@@ -7,6 +7,5 @@ data class Thread(
     val message: String,
     val messagePhoto: Int? = null,
     val isVerified: Boolean = false
-
 )
 

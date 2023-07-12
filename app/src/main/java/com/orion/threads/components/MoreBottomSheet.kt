@@ -30,58 +30,50 @@ fun MoreBottomSheet(onDismiss: () -> Unit) {
     val modalState = rememberModalBottomSheetState()
 
     ModalBottomSheet(
-
         onDismissRequest = { onDismiss() },
         sheetState = modalState,
         dragHandle = { BottomSheetDefaults.DragHandle() },
     ) {
-      MoreBottomSheetContent()
-
+        MoreBottomSheetContent()
     }
 
-
 }
 
-@Composable
-@Preview
-fun preview() {
-    MoreBottomSheetContent()
-}
 
 @Composable
 fun MoreBottomSheetContent() {
-
-
     LazyColumn {
         item() {
-            Column(modifier = Modifier
-                .padding(horizontal = 20.dp)
-                .fillMaxWidth()
+            Column(
+                modifier = Modifier
+                    .padding(horizontal = 20.dp)
+                    .fillMaxWidth()
             ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(
-                            Color.Gray.copy(alpha = 0.1f),
-                            shape = RoundedCornerShape(20.dp)
+                            Color.Gray.copy(alpha = 0.1f), shape = RoundedCornerShape(20.dp)
                         )
 
                         .padding(20.dp)
 
 
-
                 ) {
-                    Text(text = "Unfollow",fontWeight = FontWeight.SemiBold,
+                    Text(text = "Unfollow",
+                        fontWeight = FontWeight.SemiBold,
                         modifier = Modifier
                             .clickable { }
-                            .fillMaxWidth()
+                            .fillMaxWidth())
+                    Divider(
+                        modifier = Modifier.padding(vertical = 2.dp),
+                        color = Color.Gray.copy(alpha = 0.15f)
                     )
-                    Divider(modifier = Modifier.padding(vertical = 2.dp), color = Color.Gray.copy(alpha = 0.15f))
-                    Text(text = "Mute",fontWeight = FontWeight.SemiBold,
+                    Text(text = "Mute",
+                        fontWeight = FontWeight.SemiBold,
                         modifier = Modifier
                             .clickable { }
-                            .fillMaxWidth()
-                    )
+                            .fillMaxWidth())
 
                 }
                 Spacer(modifier = Modifier.height(20.dp))
@@ -89,21 +81,26 @@ fun MoreBottomSheetContent() {
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(
-                            Color.Gray.copy(alpha = 0.1f),
-                            shape = RoundedCornerShape(20.dp)
+                            Color.Gray.copy(alpha = 0.1f), shape = RoundedCornerShape(20.dp)
                         )
 
                         .padding(20.dp)
 
 
-
                 ) {
                     Text(text = "Hide",
-                        fontWeight = FontWeight.SemiBold, modifier = Modifier.clickable {  })
-                    Divider(modifier = Modifier.padding(vertical = 2.dp), color = Color.Gray.copy(alpha = 0.15f))
-                    Text(text = "Report", color = Color.Red,
-                        modifier = Modifier.clickable {  },
-                        fontWeight = FontWeight.SemiBold)
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier.clickable { })
+                    Divider(
+                        modifier = Modifier.padding(vertical = 2.dp),
+                        color = Color.Gray.copy(alpha = 0.15f)
+                    )
+                    Text(
+                        text = "Report",
+                        color = Color.Red,
+                        modifier = Modifier.clickable { },
+                        fontWeight = FontWeight.SemiBold
+                    )
 
                 }
                 Spacer(modifier = Modifier.height(30.dp))
@@ -126,4 +123,10 @@ fun MoreBottomSheetContent() {
 //            }
 //        }
     }
+}
+
+@Preview
+@Composable
+fun BottomSheetPreview() {
+    MoreBottomSheetContent()
 }
